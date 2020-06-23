@@ -29,8 +29,13 @@ function wAjax(queryURL) {
     var icon=response.weather[0].icon;
     var image=$("<img>").attr("src","http://openweathermap.org/img/wn/"+icon+"@2x.png");
     weatherDetails.append(image);
-  
-    
+    var temp=response.main.temp;
+    var ptag=$("<p>").text("Temperature: "+temp+"F");
+    weatherDetails.append(ptag);
+    var humidTag=response.main.humidity;
+    var ptag=$("<p>").text("Humidity: "+humidTag+"%");
+    weatherDetails.append(ptag)
+
     })    
 }
 
