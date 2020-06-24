@@ -13,6 +13,7 @@ $(document).ready(function () {
 
         wAjax(queryURL);
         fAjax(queryURL2);
+        renderCityName();
     });
 
     // set up ajax
@@ -66,9 +67,20 @@ $(document).ready(function () {
 
         })
 
+       
+
     }
 
-
+    function renderCityName() {
+        $(".empty").empty();
+        for (let index = 0; index < localStorage.length; index++) {
+     var ls=localStorage.getItem(localStorage.key(index));
+     var button=$("<button>").text(ls);
+     $(".empty").append(button);
+            
+        }
+        
+    } 
 
 
 
