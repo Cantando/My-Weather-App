@@ -75,12 +75,21 @@ $(document).ready(function () {
         $(".empty").empty();
         for (let index = 0; index < localStorage.length; index++) {
      var ls=localStorage.getItem(localStorage.key(index));
-     var button=$("<button>").text(ls);
+     var button=$("<button>").addClass("tab btn btn-block btn-lg ").attr("data-city",ls).text(ls);
      $(".empty").append(button);
             
         }
         
     } 
+$(document).on("click",".tab",function() {
+    var cityName=$(this).data("city");
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + apiKey;
+    var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + apiKey;
+console.log(cityName);
+
+        wAjax(queryURL);
+        fAjax(queryURL2);
+});
 
 
 
